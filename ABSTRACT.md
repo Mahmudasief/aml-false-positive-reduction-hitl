@@ -1,5 +1,5 @@
 ## Title (working)
-When Human-in-the-Loop Increases Risk: Cost-Sensitive Analysis of Manual Review Under Asymmetric Error Costs
+When Human Review Increases Expected Cost: Cost-Sensitive Analysis of Human-in-the-Loop Decision Systems
 
 ## Abstract
 
