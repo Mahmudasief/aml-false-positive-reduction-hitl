@@ -1,5 +1,3 @@
 ## Source Code Directory
 
-This directory is reserved for modularized source code.
-
-All experiments were conducted in notebooks to preserve methodological transparency.
+No standalone library code; logic implemented in notebooks; src reserved for future refactor.
