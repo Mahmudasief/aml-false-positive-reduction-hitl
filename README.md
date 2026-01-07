@@ -3,13 +3,14 @@
 
 ## Overview
 
-Human-in-the-loop (HITL) architectures are widely deployed in high-stakes decision systems such as anti-money laundering (AML), fraud detection, content moderation, and medical triage. In these systems, automated classifiers are augmented with manual review under the assumption that human intervention reliably improves outcomes.
+Human-in-the-loop (HITL) architectures are widely deployed in high-stakes decision systems—such as anti-money laundering (AML), fraud detection, content moderation, and medical triage—under the assumption that human review reliably improves outcomes.
 
-This project challenges that assumption.
+This repository challenges that assumption.
 
-We study HITL decision systems from a cost-sensitive decision-theoretic perspective, evaluating system performance using total expected operational cost rather than classification accuracy or AUC. We show that naïvely applied human review policies can increase total expected cost, even when human reviewers outperform automated models on specific error types such as false positives.
+We study HITL systems from a **cost-sensitive, decision-theoretic perspective** and show that **human review does not universally reduce total expected cost**. In many realistic cost regimes, naïvely applied HITL policies *increase* operational cost—even when human reviewers outperform automated models on specific error types.
 
-The central finding is that human intervention is not universally beneficial. Its effectiveness depends critically on error-cost asymmetry, review cost, and review allocation strategy.
+**Main result** > Human review improves system-level performance **only under narrow cost regimes**; outside these regimes, HITL strictly degrades expected cost.
+
 
 
 ## Research Question
@@ -28,7 +29,7 @@ This repository provides:
     - Fully automated decision-making is optimal
     - Selective HITL yields marginal gains
     - HITL strictly increases expected cost
- 5. A negative result that serves as a counterexample to the assumption that adding human review is inherently beneficial.
+ 5. A formal negative result that serves as a counterexample to the assumption that adding human review is inherently beneficial.
 
 
 ## Methodological Scope
@@ -36,21 +37,30 @@ This repository provides:
  - Problem setting: Binary classification with asymmetric false-positive and false-negative costs.
  - Application domain: AML-style transaction monitoring (used as a motivating example).
  - Classifier: Fixed, pre-trained probabilistic models (e.g., Random Forest, Logistic Regression).
- - Human review: Modeled as an optional intervention with explicit cost and imperfect correction probability.
+ - Human review: Modeled as a costly intervention with imperfect correction probability.
  - Optimization target: Total expected operational cost (FP + FN + review costs).
  - Exclusions: No model retraining, active learning, or feedback loops (by design).
 
 This deliberate scope isolates decision-layer effects and avoids confounding from model capacity or training dynamics.
 
 
+## Main Findings (High-Level)
+
+ - Cost-sensitive threshold optimization alone often yields larger gains than adding human review.
+ - Human review can increase total expected cost when review cost is non-trivial or poorly allocated.
+ - Selective HITL helps **only** when:
+     False-negative cost is sufficiently high
+     Review cost is sufficiently low
+     Review is allocated to highest-impact cases
+ - All regime transitions occur without retraining the model, highlighting the dominance of decision policy.
+
+
 ## Repository Structure
 
 .
 ├── data/                  # AML-style datasets
-├── notebooks/             # Experimental evaluation and grid search
-├── src/                   # Cost modeling and policy evaluation code
+├── notebooks/             # All experimental code, evaluation logic, and grid searches
 ├── figures/               # Plots and visualizations
-├── results/               # Saved outputs
 ├── ABSTRACT.md            # Paper abstract
 ├── INTRODUCTION.md        # Motivation and background
 ├── METHODS.md             # Formal problem formulation and cost model
@@ -58,16 +68,9 @@ This deliberate scope isolates decision-layer effects and avoids confounding fro
 ├── RESULTS_NUMBERS.md     # Quantitative results only (no interpretation)
 ├── DISCUSSION.md          # Interpretation and implications
 ├── THREATS_AND_VALIDITY.md# Limitations and reviewer objections
-├── PAPER_CLAIM.md         # Core claims and contributions
-└── README.md              # This file
-
-
-## Main Findings (High-Level)
-
- - Cost-sensitive threshold optimization alone often yields larger gains than adding human review.
- - Human review can increase total expected cost when review cost is non-trivial or poorly allocated.
- - Selective HITL helps only under narrow and explicit economic conditions.
- - All regime transitions occur without retraining the model, highlighting the dominance of decision policy.
+├── PAPER_CLAIM.md         # Core research claims
+└── README.md              # Repository overview
+** All experiments and analyses are implemented in Jupyter notebooks to emphasize transparency and reproducibility of decision-layer evaluation.**
 
 
 ## Why This Matters
@@ -88,15 +91,6 @@ These findings explain why many production HITL systems suffer from investigator
  - AML / risk analytics practitioners
  - Reviewers evaluating cost-sensitive ML systems
  - Policymakers and system designers
-
-
-## Status
-
-This repository represents a research-ready artifact suitable for:
- - PhD applications
- - Methodological papers
- - Workshop or conference submission
- - National Interest Waiver (NIW) evidence
 
 
 ## Citation
