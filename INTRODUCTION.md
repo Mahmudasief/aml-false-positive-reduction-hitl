@@ -1,4 +1,4 @@
-##Introduction
+## Introduction
 
 Human-in-the-loop (HITL) decision systems are widely deployed in high-stakes machine learning applications, including anti-money laundering (AML), fraud detection, content moderation, and medical triage. In such settings, automated classifiers are routinely augmented with manual review pipelines under the assumption that human intervention reliably reduces error and operational risk. As a result, HITL architectures are often treated as a default best practice in production systems.
 
