@@ -1,4 +1,4 @@
-## Dataset
+## Dataset Documentation
 
 This project uses the Kaggle Credit Card Fraud Detection dataset
 (European cardholders, September 2013).
