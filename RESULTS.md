@@ -95,10 +95,3 @@ This demonstrates that, under asymmetric error costs, decision policy and review
 4. HITL effectiveness is regime-dependent, not universal.
 5. Decision-layer optimization is a first-order concern in high-stakes ML systems.
 
----
-
-## Implications for Deployment
-
-These results suggest that HITL systems should not be deployed by default. Instead, human review should be treated as an **economic intervention** whose value depends on cost asymmetry, workload, and review strategy.
-
-Absent explicit cost modeling, HITL may increase operational burden rather than reduce risk.
