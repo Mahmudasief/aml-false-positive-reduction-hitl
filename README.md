@@ -58,19 +58,21 @@ This deliberate scope isolates decision-layer effects and avoids confounding fro
 ## Repository Structure
 
 .
-├── data/                  # AML-style datasets
-├── notebooks/             # All experimental code, evaluation logic, and grid searches
-├── figures/               # Plots and visualizations
-├── ABSTRACT.md            # Paper abstract
-├── INTRODUCTION.md        # Motivation and background
-├── METHODS.md             # Formal problem formulation and cost model
-├── RESULTS.md             # Empirical findings and regime analysis
-├── RESULTS_NUMBERS.md     # Quantitative results only (no interpretation)
-├── DISCUSSION.md          # Interpretation and implications
-├── THREATS_AND_VALIDITY.md# Limitations and reviewer objections
-├── PAPER_CLAIM.md         # Core research claims
-└── README.md              # Repository overview
-** All experiments and analyses are implemented in Jupyter notebooks to emphasize transparency and reproducibility of decision-layer evaluation.**
+├── data/                   # Dataset documentation (raw data not committed)
+├── notebooks/              # All experimental code, evaluation logic, and grid searches (Jupyter)
+├── figures/                # Reserved for optional generated plots (not committed by default)
+├── results/                # Reserved for serialized outputs if needed (results reported in markdown)
+├── src/                    # Reserved for future modularization (current implementation is notebook-based)
+├── ABSTRACT.md             # Paper abstract
+├── INTRODUCTION.md         # Motivation and background
+├── METHODS.md              # Formal problem formulation and cost model
+├── RESULTS.md              # Empirical findings and regime analysis
+├── RESULTS_NUMBERS.md      # Quantitative results only (no interpretation)
+├── DISCUSSION.md           # Interpretation and implications
+├── THREATS_AND_VALIDITY.md # Limitations and anticipated reviewer objections
+├── PAPER_CLAIM.md          # Core research claims and contributions
+└── README.md               # Repository overview (this file)
+All experiments and analyses are implemented in Jupyter notebooks to emphasize transparency and reproducibility of decision-layer evaluation.
 
 
 ## Why This Matters
